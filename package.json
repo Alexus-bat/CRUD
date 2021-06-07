@@ -1,0 +1,37 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "CRUD application",
+  "main": "index.ts",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production ts-node index.ts",
+    "server": "ts-node index.ts",
+    "client": "npm run start --prefix client",
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexus-bat/crud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexus-bat/crud/issues"
+  },
+  "homepage": "https://github.com/Alexus-bat/crud#readme",
+  "dependencies": {
+    "@types/express": "^4.17.12",
+    "@types/node": "^15.12.1",
+    "concurrently": "^6.2.0",
+    "config": "^3.3.6",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  }
+}

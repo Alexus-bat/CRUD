@@ -1,0 +1,187 @@
+$background-color1: #bdbdbd;
+$background-color2: #9e9e9e;
+$background-color3: #757575;
+$background-color4: #616161;
+
+$font-color: #fff;
+
+$shadow: #424242;
+
+$btn-add: #388e3c;
+$btn-delete: #c62828;
+
+@mixin btn($color) {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: .5rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    background: $color;
+    color: $font-color;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0.3rem 0.3rem 1rem $shadow;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+    
+}
+
+body * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+    width: 100%;
+    min-height: 100vh;
+    background: $background-color1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .title {
+        text-align: center;
+        color: $font-color;
+        font-size: 3rem;
+        padding: 2rem;
+        text-shadow: 0.5rem 0.5rem 0.5rem $shadow;
+    }
+
+    .form {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        background: $background-color3;
+        box-shadow: 0.5rem 0.5rem 1rem $shadow;
+        border-radius: 1rem;
+
+        input {
+            color: $font-color;
+        }
+
+        .btn-custom {
+            @include btn($btn-add);
+        }
+    }
+
+    .content {
+        width: 60%;
+        padding: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 2rem;
+        background: $background-color3;
+        box-shadow: 1rem 1rem 1rem $shadow;
+
+        &__list {
+            padding: 1rem;
+            background: $background-color3;
+            border: none;
+            border-radius: 1rem;
+
+            .active .collapsible-custom__header {                    
+                border-radius: 2rem 2rem 0 0;
+            }
+
+            .collapsible-custom {                
+                &__header {
+                    margin: 0.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background: $background-color4;
+                    color: $font-color;
+                    font-weight: 600;
+                    border: none;
+                    box-shadow: 0.2rem 0.2rem 0.5rem $shadow;
+                    border-radius: 2rem;
+                    transition: all 0.3s ease-in-out;
+    
+                    &__title {
+                        font-size: 1.5rem;
+                        text-align: center;
+                    }
+    
+                    .btn-custom {
+                        @include btn($btn-delete);
+                        border-radius: 50%;
+                    }
+                }
+
+                &__body {
+                    border: none;
+                    padding: 0.5rem;
+
+                    form {
+                        display: flex;
+                        background: $background-color2;
+                        padding: 0.5rem;
+                        border-radius: 0 0 2rem 2rem;
+                        box-shadow: 0.1rem 0.1rem 0.5rem $shadow;
+
+                        input {
+                            padding-left: 1rem;
+                            color: $font-color;
+                        }
+
+                        button {
+                            @include btn($btn-add);
+                            border-radius: 2rem;
+                        }
+                    }
+
+                    &__collection {
+                        li {
+                            background: $background-color2;
+                            margin-bottom: 0.5rem;
+                            padding: 1rem;
+                            color: $font-color;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            font-size: 1.3rem;
+                            transition: all 0.3s ease-in-out;
+                            box-shadow: 0.1rem 0.1rem 0.5rem $shadow;
+
+                            span {
+                                text-align: center;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                                transform: scale(1.01);
+                            }
+
+                            .action-icon {
+                                color: $btn-delete;
+                                transition: all 0.3s ease-in-out;
+
+                                &:hover {
+                                    cursor: pointer;
+                                    transform: scale(1.3);
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .main {
+        .content {
+            width: 90%;
+            &__list {
+                padding: 0.5rem;
+            }
+        }
+    }
+}
