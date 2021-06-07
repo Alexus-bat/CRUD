@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "CRUD application",
   "main": "index.ts",
-  "engine": {
-    "node": "15.11.0",
-    "npm": "7.6.0"
-  },
   "scripts": {
     "start": "cross-env NODE_ENV=production ts-node index.ts",
     "server": "ts-node index.ts",
